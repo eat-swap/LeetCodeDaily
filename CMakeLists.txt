@@ -1,6 +1,8 @@
-cmake_minimum_required(VERSION 3.21)
-project(LeetCodeDaily)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.21)
+PROJECT(LeetCodeDaily)
 
-set(CMAKE_CXX_STANDARD 23)
+SET(CMAKE_CXX_STANDARD 23)
 
-add_executable(LeetCodeDaily main.cpp)
+ADD_EXECUTABLE(LeetCodeDaily main.cpp)
+
+ADD_SUBDIRECTORY(2112)
