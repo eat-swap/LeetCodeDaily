@@ -1,16 +1,12 @@
 #include <vector>
 #include <algorithm>
 
-struct EuclideanDistanceCompare {
-	bool operator()(const std::vector<int>& lhs, const std::vector<int>& rhs) const {
-		return lhs[0] * lhs[0] + lhs[1] * lhs[1] < rhs[0] * rhs[0] + rhs[1] * rhs[1];
-	}
-};
-
 class Solution {
 public:
 	static std::vector<std::vector<int>> kClosest(std::vector<std::vector<int>>& points, int k) {
-		std::sort(points.begin(), points.end(), EuclideanDistanceCompare{});
+		std::sort(points.begin(), points.end(), [](const std::vector<int>& lhs, const std::vector<int>& rhs){
+			return lhs[0] * lhs[0] + lhs[1] * lhs[1] < rhs[0] * rhs[0] + rhs[1] * rhs[1];
+		});
 		return {points.begin(), points.begin() + k};
 	}
 };
