@@ -8,11 +8,9 @@ class Solution {
 private:
 	// dp[][][0]: previous moved is mouse, [1] cat.
 	inline static int d[50][50][2];
-	inline static bool vis[50][50][2];
 public:
 	static int catMouseGame(const std::vector<std::vector<int>>& graph) {
 		std::memset(d, -1, sizeof d);
-		std::memset(vis, 0, sizeof vis);
 		const auto n = graph.size();
 		for (int i = 1; i < 50; ++i) {
 			// initial states
