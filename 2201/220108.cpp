@@ -25,7 +25,7 @@
 
 class Solution {
 private:
-	int dp[70][70][70];
+	int dp[2][70][70];
 public:
 	int cherryPickup(const std::vector<std::vector<int>>& grid) {
 		int m = grid.size();
@@ -38,24 +38,24 @@ public:
 			for (int j = 0; j < n; ++j) { // j <- col of robot 1
 				for (int k = 0; k < n; ++k) { // k <- robot 2
 					int thisPick = (j == k) ? (grid[i][j]) : (grid[i][j] + grid[i][k]);
-					dp[i][j][k] = std::max(dp[i][j][k], dp[i - 1][j][k] + thisPick);
+					dp[i & 1][j][k] = std::max(dp[i & 1][j][k], dp[(i & 1) ^ 1][j][k] + thisPick);
 					if (k > 0)
-						dp[i][j][k] = std::max(dp[i][j][k], dp[i - 1][j][k - 1] + thisPick);
+						dp[i & 1][j][k] = std::max(dp[i & 1][j][k], dp[(i & 1) ^ 1][j][k - 1] + thisPick);
 					if (k < n - 1)
-						dp[i][j][k] = std::max(dp[i][j][k], dp[i - 1][j][k + 1] + thisPick);
+						dp[i & 1][j][k] = std::max(dp[i & 1][j][k], dp[(i & 1) ^ 1][j][k + 1] + thisPick);
 					if (j > 0) {
-						dp[i][j][k] = std::max(dp[i][j][k], dp[i - 1][j - 1][k] + thisPick);
+						dp[i & 1][j][k] = std::max(dp[i & 1][j][k], dp[(i & 1) ^ 1][j - 1][k] + thisPick);
 						if (k > 0)
-							dp[i][j][k] = std::max(dp[i][j][k], dp[i - 1][j - 1][k - 1] + thisPick);
+							dp[i & 1][j][k] = std::max(dp[i & 1][j][k], dp[(i & 1) ^ 1][j - 1][k - 1] + thisPick);
 						if (k < n - 1)
-							dp[i][j][k] = std::max(dp[i][j][k], dp[i - 1][j - 1][k + 1] + thisPick);
+							dp[i & 1][j][k] = std::max(dp[i & 1][j][k], dp[(i & 1) ^ 1][j - 1][k + 1] + thisPick);
 					}
 					if (j < n - 1) {
-						dp[i][j][k] = std::max(dp[i][j][k], dp[i - 1][j + 1][k] + thisPick);
+						dp[i & 1][j][k] = std::max(dp[i & 1][j][k], dp[(i & 1) ^ 1][j + 1][k] + thisPick);
 						if (k > 0)
-							dp[i][j][k] = std::max(dp[i][j][k], dp[i - 1][j + 1][k - 1] + thisPick);
+							dp[i & 1][j][k] = std::max(dp[i & 1][j][k], dp[(i & 1) ^ 1][j + 1][k - 1] + thisPick);
 						if (k < n - 1)
-							dp[i][j][k] = std::max(dp[i][j][k], dp[i - 1][j + 1][k + 1] + thisPick);
+							dp[i & 1][j][k] = std::max(dp[i & 1][j][k], dp[(i & 1) ^ 1][j + 1][k + 1] + thisPick);
 					}
 				}
 			}
@@ -63,7 +63,7 @@ public:
 		int ret = -(0x7FFFFFFF) - 1;
 		for (int i = 0; i < n; ++i)
 			for (int j = 0; j < n; ++j)
-				ret = std::max(ret, dp[m - 1][i][j]);
+				ret = std::max(ret, dp[(m ^ 1) & 1][i][j]);
 		return ret;
 	}
 };
