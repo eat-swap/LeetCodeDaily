@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <cstring>
 
 /**
  * 1041. Robot Bounded In Circle
