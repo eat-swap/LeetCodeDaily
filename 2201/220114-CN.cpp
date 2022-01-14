@@ -2,6 +2,13 @@
 #include <iostream>
 #include <queue>
 
+/**
+ * 373. Find K Pairs with Smallest Sums
+ * You are given two integer arrays nums1 and nums2 sorted in ascending order and an integer k.
+ * Define a pair (u, v) which consists of one element from the first array and one element from the second array.
+ * Return the k pairs (u1, v1), (u2, v2), ..., (uk, vk) with the smallest sums.
+ */
+
 class Solution {
 private:
 	static auto getCartesianProduct(const std::vector<int>& p, const std::vector<int>& q, int limP, int limQ) {

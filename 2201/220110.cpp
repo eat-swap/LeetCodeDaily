@@ -2,6 +2,11 @@
 #include <iostream>
 #include <random>
 
+/**
+ * 67. Add Binary
+ * Given two binary strings a and b, return their sum as a binary string.
+ */
+
 class Solution {
 public:
 	static std::string addBinary(const std::string& a, const std::string& b) {
