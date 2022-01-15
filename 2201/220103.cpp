@@ -28,6 +28,10 @@ public:
 };
 
 int main() {
-	std::printf("%d\n", Solution::findJudge(4, {{1, 3}, {1, 4}, {2, 3}, {2, 4}, {4, 3}}));
+	std::printf("%d\n", Solution::findJudge(4, {{1, 3},
+												{1, 4},
+												{2, 3},
+												{2, 4},
+												{4, 3}}));
 	return 0;
 }
