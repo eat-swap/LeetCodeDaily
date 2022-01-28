@@ -11,6 +11,11 @@ struct TreeNode {
 	explicit TreeNode(int x = 0, TreeNode* left = nullptr, TreeNode* right = nullptr) : val(x), left(left), right(right) {}
 };
 
+/**
+ * 1305. All Elements in Two Binary Search Trees
+ * Given two binary search trees root1 and root2, return a list containing all the integers from both trees sorted in ascending order.
+ */
+
 class Solution {
 private:
 	static void dfs(const TreeNode* const root, std::vector<int>& ret) {
