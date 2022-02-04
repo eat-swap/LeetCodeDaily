@@ -2,6 +2,11 @@
 #include <unordered_map>
 #include <iostream>
 
+/**
+ * 525. Contiguous Array
+ * Given a binary array nums, return the maximum length of a contiguous subarray with an equal number of 0 and 1.
+ */
+
 class Solution {
 public:
 	static int findMaxLength(const std::vector<int>& nums) {
