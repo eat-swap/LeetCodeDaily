@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 #include <iostream>
 #include <unordered_set>
 
@@ -9,6 +10,32 @@
  */
 
 class Solution {
+public:
+	static int singleNumber(const std::vector<int>& nums) {
+		int x = 0;
+		for (int i : nums)
+			x = x xor i;
+		return x;
+	}
+};
+
+class SolutionOld {
+private:
+	inline static const int maxN = 30000 + 3;
+public:
+	static int singleNumber(const std::vector<int>& nums) {
+		int cnt[maxN << 1]{};
+		for (int i : nums)
+			++cnt[i + maxN];
+		for (int i = 0; i < (maxN << 1); ++i)
+			if (cnt[i] == 1)
+				return i - maxN;
+		assert(false);
+		return -1;
+	}
+};
+
+class SolutionOldOld {
 public:
 	static int singleNumber(const std::vector<int>& nums) {
 		std::unordered_set<int> s;
@@ -22,6 +49,6 @@ public:
 };
 
 int main() {
-	std::cout << Solution::singleNumber({4,1,2,1,2});
+	std::cout << Solution::singleNumber({1});
 	return 0;
 }
