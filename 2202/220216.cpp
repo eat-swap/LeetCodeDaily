@@ -34,16 +34,14 @@ public:
 				break;
 
 			// ptr --> ptrN --> ptrNN --> ptrNNN
-			ListNode* ptrNNN = ptrNN->next;
+			// ListNode* ptrNNN = ptrNN->next;
 
 			// ptr is previous node
 			// swap ptrN and ptrNN.
-			ptrNN->next = ptrN;
-			ptr->next = ptrNN;
-			ptrN->next = ptrNNN;
+			(ptr = ((ptr->next = ptrNN)->next = ptrN))->next = ptrNN->next;
 
 			// ptr --> ptrNN --> ptrN --> ptrNNN
-			ptr = ptrN;
+			// ptr = ptrN;
 		}
 		return ret.next;
 	}
