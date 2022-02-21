@@ -1,5 +1,12 @@
 ﻿namespace cn_0221;
 
+/**
+ * Warning:
+ * This solution, written in C#, does not work at all (TLE).
+ * However, a exact re-implement in C++ did passed all test cases.
+ * I'm not sure why.
+ */
+
 public class Solution {
 	public string PushDominoes(string dominoes) {
 		var q = new Queue<int>();
