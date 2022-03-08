@@ -2,6 +2,7 @@
 #include <vector>
 #include <unordered_map>
 #include <iostream>
+#include <functional>
 
 /**
  * 2055. Plates Between Candles
@@ -31,25 +32,6 @@ private:
 		return 31 - __builtin_clz(x);
 	}
 
-	static int dp(int L, int R, const std::string& s, std::vector<std::unordered_map<int, int>>& ans) {
-		if (L == R)
-			return int(s[L] == '*');
-		if (L == (R ^ 1))
-			return ans[1][L >> 1] = (s[L] == '*') + (s[R] == '*');
-
-		if (L == LOW(L, R) && R == HIGH(L, R)) {
-			const int x = 1 + MSB(L ^ R), idx = L >> x;
-			auto& m = ans[x];
-			if (m.count(idx))
-				return m[idx];
-			else
-				return m[idx] = dp(L, L | ((1 << (x - 1)) - 1), s, ans) + dp(L | (1 << (x - 1)), R, s, ans);
-		} else {
-			int M = MID(L, R);
-			return dp(L, M - 1, s, ans) + dp(M, R, s, ans);
-		}
-	}
-
 public:
 	static std::vector<int> platesBetweenCandles(const std::string& s, const std::vector<std::vector<int>>& queries) {
 		int n = s.length();
@@ -64,6 +46,26 @@ public:
 		if (positions.empty())
 			return std::vector<int>(queries.size());
 
+		std::function<int(int, int)> dp;
+		dp = [&](int L, int R) {
+			if (L == R)
+				return int(s[L] == '*');
+			if (L == (R ^ 1))
+				return ans[1][L >> 1] = (s[L] == '*') + (s[R] == '*');
+
+			if (L == LOW(L, R) && R == HIGH(L, R)) {
+				const int x = 1 + MSB(L ^ R), idx = L >> x;
+				auto& m = ans[x];
+				if (m.count(idx))
+					return m[idx];
+				else
+					return m[idx] = dp(L, L | ((1 << (x - 1)) - 1)) + dp(L | (1 << (x - 1)), R);
+			} else {
+				int M = MID(L, R);
+				return dp(L, M - 1) + dp(M, R);
+			}
+		};
+
 		for (auto i : queries) {
 			auto begin = std::lower_bound(positions.begin(), positions.end(), i[0]);
 			auto end = std::lower_bound(positions.begin(), positions.end(), i[1]);
@@ -76,7 +78,7 @@ public:
 			if (begin == positions.end() || *begin >= *end)
 				ret.push_back(0);
 			else
-				ret.push_back(dp(*begin, *end, s, ans));
+				ret.push_back(dp(*begin, *end));
 		}
 		return ret;
 	}
