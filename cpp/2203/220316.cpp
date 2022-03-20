@@ -3,6 +3,11 @@
 #include <unordered_map>
 #include <iostream>
 
+/**
+ * 946. Validate Stack Sequences
+ * Given two integer arrays pushed and popped each with distinct values, return true if this could have been the result of a sequence of push and pop operations on an initially empty stack, or false otherwise.
+ */
+
 class Solution {
 public:
 	static bool validateStackSequences(const std::vector<int>& pushed, const std::vector<int>& popped) {
