@@ -1,5 +1,10 @@
 #include <iostream>
 
+/**
+ * 172. Factorial Trailing Zeroes
+ * Given an integer n, return the number of trailing zeroes in n!.
+ */
+
 class Solution {
 public:
 	// This algorithm is far NOT optimal.
