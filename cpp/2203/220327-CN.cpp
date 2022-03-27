@@ -19,15 +19,10 @@ public:
 			return {};
 		std::vector<int> ret(n, rem / n);
 		rem = rem - rem / n * n;
-		for (int& i : ret) {
-			if (rem <= 0)
-				break;
-			if (rem < 6 - i) {
-				i += rem;
-				break;
-			}
-			rem -= 6 - i;
-			i = 6;
+		for (int i = 0; i < n && rem > 0; ++i) {
+			int delta = std::min(rem, 6 - ret[i]);
+			rem -= delta;
+			ret[i] += delta;
 		}
 		return ret;
 	}
