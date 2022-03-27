@@ -17,6 +17,20 @@ class Solution {
 public:
 	static std::vector<int> kWeakestRows(const std::vector<std::vector<int>>& mat, int k) {
 		int n = mat.size();
+		std::vector<int> idMat(n), ret(n);
+		for (int i = 0; i < n; ++i)
+			idMat[ret[i] = i] = std::distance(mat[i].begin(), std::lower_bound(mat[i].begin(), mat[i].end(), 0, std::greater<>()));
+		std::sort(ret.begin(), ret.end(), [&](int x, int y) {
+			return idMat[x] == idMat[y] ? x < y : idMat[x] < idMat[y];
+		});
+		return {ret.begin(), ret.begin() + k};
+	}
+};
+
+class SolutionOld {
+public:
+	static std::vector<int> kWeakestRows(const std::vector<std::vector<int>>& mat, int k) {
+		int n = mat.size();
 		std::vector<std::pair<int, const std::vector<int>*>> idMat(n);
 		for (int i = 0; i < n; ++i)
 			idMat[i] = {i, &mat[i]};
