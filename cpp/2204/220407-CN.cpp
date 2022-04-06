@@ -13,8 +13,7 @@ public:
 			return true;
 		};
 
-		std::size_t pos = 0;
-		for (std::size_t nextPos = goal.find(ch, pos); nextPos != std::string::npos; nextPos = goal.find(ch, pos = nextPos + 1))
+		for (std::size_t nextPos = goal.find(ch, 0); nextPos != std::string::npos; nextPos = goal.find(ch, nextPos + 1))
 			if (verify(nextPos))
 				return true;
 		return false;
