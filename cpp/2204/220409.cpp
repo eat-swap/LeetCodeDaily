@@ -3,6 +3,18 @@
 #include <unordered_map>
 #include <queue>
 
+/**
+ * 347. Top K Frequent Elements
+ * Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+ *
+ * Complexity analysis:
+ * Solution: O(n + k)
+ * Solution2: O(n + n * log(k))
+ * Solution3: O(n + k * log(n))
+ *
+ * But "Solution" is the slowest.
+ */
+
 class Solution {
 public:
 	static std::vector<int> topKFrequent(const std::vector<int>& nums, int k) {
