@@ -22,10 +22,9 @@ public:
 	static int calPoints(std::vector<std::string>& ops) {
 		std::vector<int> scores;
 		std::for_each(ops.begin(), ops.end(), [&](const std::string& str) {
-			int x;
 			try {
-				x = std::stoi(str);
-			} catch (const std::invalid_argument& ignored) {
+				scores.push_back(std::stoi(str));
+			} catch (std::invalid_argument) {
 				switch (str[0]) {
 					case '+':
 						scores.push_back(*std::prev(scores.end(), 2) + scores.back());
@@ -35,12 +34,8 @@ public:
 						break;
 					case 'D':
 						scores.push_back(2 * scores.back());
-						break;
-					default:;
 				}
-				return;
 			}
-			scores.push_back(x);
 		});
 		return std::accumulate(scores.begin(), scores.end(), 0);
 	}
