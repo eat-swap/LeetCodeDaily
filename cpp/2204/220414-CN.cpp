@@ -14,8 +14,8 @@
 class Solution {
 public:
 	static int maximumWealth(const std::vector<std::vector<int>>& accounts) {
-		std::vector<int> tmp;
-		std::for_each(accounts.cbegin(), accounts.cend(), [&](const std::vector<int>& x) { tmp.push_back(std::accumulate(x.cbegin(), x.cend(), 0)); });
-		return *std::max_element(tmp.cbegin(), tmp.cend());
+		int ret = 0;
+		std::for_each(accounts.cbegin(), accounts.cend(), [&](const std::vector<int>& x) { ret = std::max(ret, std::accumulate(x.cbegin(), x.cend(), 0)); });
+		return ret;
 	}
 };
