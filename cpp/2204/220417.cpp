@@ -8,6 +8,11 @@ struct TreeNode {
 	explicit TreeNode(int x = 0, TreeNode* l = nullptr, TreeNode* r = nullptr) : val(x), left(l), right(r) {}
 };
 
+/**
+ * 897. Increasing Order Search Tree
+ * Given the root of a binary search tree, rearrange the tree in in-order so that the leftmost node in the tree is now the root of the tree, and every node has no left child and only one right child.
+ */
+
 class Solution {
 public:
 	static TreeNode* increasingBST(TreeNode* root, TreeNode* greater = nullptr) {
