@@ -64,26 +64,15 @@ public:
  */
 
 class Solution {
+private:
+	static inline int dX[] = {0, 1, 0, -1};
+	static inline int dY[] = {1, 0, -1, 0};
 public:
 	static int minimumEffortPath(const std::vector<std::vector<int>>& heights) {
 		const std::size_t m = heights.size(), n = heights.front().size(), total = m * n;
 
 		std::vector<int> d(total, 0x7FFFFFFF);
-		std::vector<std::vector<int>> G(total);
 		std::vector<bool> vis(total);
-		for (int i = 0; i < m * n; ++i) {
-			// Build graph
-			if (i + n < total) {
-				// Down
-				G[i].push_back(i + n);
-				G[i + n].push_back(i);
-			}
-			if ((i + 1) % n) {
-				// Right
-				G[i].push_back(i + 1);
-				G[i + 1].push_back(i);
-			}
-		}
 
 		// Pair <Dist, Node#>
 		std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> q;
@@ -99,8 +88,11 @@ public:
 				continue;
 			vis[idx] = true;
 
-			for (int idxNext : G[idx]) {
-				int length = std::abs(heights[idx / n][idx % n] - heights[idxNext / n][idxNext % n]);
+			for (int i = 0; i < 4; ++i) {
+				const int xNext = dX[i] + (idx / n), yNext = dY[i] + (idx % n);
+				if (xNext < 0 || xNext >= m || yNext < 0 || yNext >= n)
+					continue;
+				const int idxNext = xNext * n + yNext, length = std::abs(heights[idx / n][idx % n] - heights[idxNext / n][idxNext % n]);
 				if (d[idxNext] > std::max(d[idx], length)) {
 					d[idxNext] = std::max(d[idx], length);
 					q.push({d[idxNext], idxNext});
