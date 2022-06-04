@@ -30,8 +30,8 @@ public:
 	}
 
 	int sumRegion(int x0, int y0, int x1, int y1) {
-		x1--;
-		y1--;
+		x1++;
+		y1++;
 		return prefixSum[x1 * n + y1] - prefixSum[x0 * n + y1] - prefixSum[x1 * n + y0] + prefixSum[x0 * n + y0];
 	}
 };
