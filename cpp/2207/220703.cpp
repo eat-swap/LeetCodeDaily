@@ -15,8 +15,6 @@ class Solution {
 public:
 	static int wiggleMaxLength(const std::vector<int>& nums) {
 		const int n = nums.size();
-		if (n <= 1)
-			return 1;
 		int dp[2][1024]{{1}, {1}};
 		for (int i = 1; i < n; ++i) {
 			const int t = nums[i] - nums[i - 1];
