@@ -14,13 +14,13 @@ public:
 		std::string ret;
 		ret.reserve(s.length() + t.length());
 		while (*sp && *tp) {
-			ret.push_back(*(sp++));
-			ret.push_back(*(tp++));
+			ret.push_back(*sp++);
+			ret.push_back(*tp++);
 		}
 		while (*sp)
-			ret.push_back(*(sp++));
+			ret.push_back(*sp++);
 		while (*tp)
-			ret.push_back(*(tp++));
+			ret.push_back(*tp++);
 		return ret;
 	}
 };
