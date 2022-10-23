@@ -11,16 +11,14 @@
 class Solution {
 public:
 	static std::vector<int> findErrorNums(const std::vector<int>& n) {
-		std::vector<bool> s(n.size() + 1);
-		int x = 0;
-		for (int i : n) {
-			if (s[i])
-				x = i;
-			s[i] = true;
+		int x = 0, y = 0, m = n.size();
+		std::vector<bool> s(m);
+		for (int i = 0; i < m; ++i) {
+			if (s[n[i] - 1])
+				x = n[i];
+			s[n[i] - 1] = true;
+			y ^= (i + 1) ^ n[i];
 		}
-		for (int i = 1; i <= s.size(); ++i)
-			if (!s[i])
-				return {x, i};
-		return {};
+		return {x, x ^ y};
 	}
 };
