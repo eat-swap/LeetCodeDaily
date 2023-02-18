@@ -16,7 +16,7 @@ ENDIF()
 # Optimisation
 # SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Ofast -march=native -mtune=native -finline-functions -ffast-math -fomit-frame-pointer")
 
-ADD_EXECUTABLE(leetcode-cpp main.cpp 2302/230218.cpp)
+ADD_EXECUTABLE(leetcode-cpp main.cpp 2302/230218.cpp 2302/230218-CN.cpp)
 
 # ADD_SUBDIRECTORY(2112)
 # ADD_SUBDIRECTORY(2201)
@@ -26,5 +26,6 @@ ADD_EXECUTABLE(leetcode-cpp main.cpp 2302/230218.cpp)
 # ADD_SUBDIRECTORY(2205)
 # ADD_SUBDIRECTORY(2206)
 # ADD_SUBDIRECTORY(2207)
-ADD_SUBDIRECTORY(2210)
+# ADD_SUBDIRECTORY(2210)
+ADD_SUBDIRECTORY(2302)
 ADD_SUBDIRECTORY(more)
