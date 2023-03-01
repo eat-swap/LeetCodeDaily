@@ -13,7 +13,7 @@ private:
 	static inline const int S = 50001;
 
 public:
-	static std::vector<int> sortArray(std::vector<int>& nums) {
+	static std::vector<int> sortArray(const std::vector<int>& nums) {
 		const int n = nums.size();
 		std::vector<int> ret(n);
 		uint16_t bucket[100005]{};
