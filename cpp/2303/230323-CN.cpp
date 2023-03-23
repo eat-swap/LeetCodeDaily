@@ -2,8 +2,10 @@
 #include <functional>
 #include <iostream>
 #include <unordered_map>
+#include <concepts>
 
 template<typename T>
+requires std::totally_ordered<T>
 class MinMaxSegTree {
 private:
 	using V = std::vector<T>;
