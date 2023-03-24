@@ -26,11 +26,9 @@ public:
 		std::function<int(int)> dfs = [&](int cur) {
 			vis[cur] = true;
 			int ret = 0;
-			for (int nx : vs[cur]) {
-				if (vis[std::abs(nx)])
-					continue;
-				ret += (nx < 0) + dfs(std::abs(nx));
-			}
+			for (int nx : vs[cur])
+				if (!vis[std::abs(nx)])
+					ret += (nx < 0) + dfs(std::abs(nx));
 			return ret;
 		};
 		return dfs(0);
