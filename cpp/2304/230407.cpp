@@ -21,12 +21,12 @@ public:
 
 int Solution::numEnclaves(std::vector<std::vector<int>>& G) {
 	const int m = G.size(), n = G.front().size();
+    std::vector<bool> vis(m * n);
 	auto setAs0 = [&](int x, int y) {
 		if (G[x][y] == 0) return 0;
 		std::queue<std::pair<int, int>> q;
 		q.emplace(x, y);
 		int ret = 0;
-		std::vector<bool> vis(m * n);
 		for (int nx, ny; !q.empty(); q.pop()) {
 			auto&& [cx, cy] = q.front();
 			G[cx][cy] = 0;
