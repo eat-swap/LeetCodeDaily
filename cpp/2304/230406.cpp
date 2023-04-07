@@ -20,6 +20,7 @@ public:
 
 int Solution::closedIsland(std::vector<std::vector<int>>& G) {
 	const int m = G.size(), n = G.front().size();
+	std::vector<bool> vis(m * n);
 	auto setAs1 = [&](int x, int y) {
 		if (G[x][y]) return 0;
 		std::queue<std::pair<int, int>> q;
@@ -30,8 +31,10 @@ int Solution::closedIsland(std::vector<std::vector<int>>& G) {
 			for (int i = 0; i < 4; ++i) {
 				nx = cx + dX[i];
 				ny = cy + dY[i];
-				if (nx >= 0 && nx < m && ny >= 0 && ny < n && G[nx][ny] == 0)
+				if (nx >= 0 && nx < m && ny >= 0 && ny < n && G[nx][ny] == 0 && !vis[nx * n + ny]) {
 					q.emplace(nx, ny);
+					vis[nx * n + ny] = true;
+				}
 			}
 		}
 		return 1;
