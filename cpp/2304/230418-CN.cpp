@@ -15,20 +15,20 @@ struct TreeNode {
 
 class Solution {
 private:
-	static inline constexpr int MAX(int x, int y) { return x > y ? x : y; }
-	static inline constexpr int MIN(int x, int y) { return x < y ? x : y; }
-	static inline constexpr int ABS(int x) { return x < 0 ? -x : x; }
+	static inline constexpr int MAX(int x, int y) noexcept { return x > y ? x : y; }
+	static inline constexpr int MIN(int x, int y) noexcept { return x < y ? x : y; }
+	static inline constexpr int ABS(int x) noexcept { return x < 0 ? -x : x; }
 
-	static int dfs(TreeNode*, int, int);
+	static int dfs(TreeNode*, int, int) noexcept;
 public:
-	static int maxAncestorDiff(TreeNode*);
+	static int maxAncestorDiff(TreeNode*) noexcept;
 };
 
-int Solution::maxAncestorDiff(TreeNode* r) {
+int Solution::maxAncestorDiff(TreeNode* r) noexcept {
 	return r ? dfs(r, r->val, r->val) : 0;
 }
 
-int Solution::dfs(TreeNode* n, int min, int max) {
+int Solution::dfs(TreeNode* n, int min, int max) noexcept {
 	int ret = MAX(ABS(n->val - min), ABS(n->val - max));
 	const int min_ = MIN(min, n->val), max_ = MAX(max, n->val);
 	if (n->left)
