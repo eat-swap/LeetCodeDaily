@@ -9,12 +9,12 @@
  * Return the average salary of employees excluding the minimum and maximum salary. Answers within 1e-5 of the actual answer will be accepted.
  */
 
-class Solution {
+class LC230501 {
 public:
-	static inline double average(const std::vector<int>&) noexcept;
+	static double average(const std::vector<int>&) noexcept;
 };
 
-inline double Solution::average(const std::vector<int>& salary) noexcept {
+double LC230501::average(const std::vector<int>& salary) noexcept {
 	return (
 		std::reduce(salary.begin(), salary.end(), 0.0) -
 		*std::min_element(salary.begin(), salary.end()) -

@@ -13,13 +13,13 @@
  * Return the number of minutes needed to inform all the employees about the urgent news.
  */
 
-class Solution {
+class LC230501CN {
 public:
 	using CVIR = const std::vector<int>&;
 	static int numOfMinutes(int, int, CVIR, CVIR);
 };
 
-int Solution::numOfMinutes(int n, int headID, CVIR manager, CVIR informTime) {
+int LC230501CN::numOfMinutes(int n, int headID, CVIR manager, CVIR informTime) {
 	std::vector<int> ans(n, -1);
 	ans[headID] = 0;
 	std::function<int(int)> dp = [&](int cur) {
