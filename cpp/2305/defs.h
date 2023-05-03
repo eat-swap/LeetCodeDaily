@@ -2,6 +2,7 @@
 #define LEETCODE_CPP_DEFS_H
 
 #include <vector>
+#include <string>
 
 class LC230501CN {
 public:
@@ -27,6 +28,16 @@ public:
 class LC230503CN {
 public:
 	static bool isValid(const std::string&) noexcept;
+};
+
+class LC230503 {
+public:
+	template<typename T>
+	using V = std::vector<T>;
+	using VVI = V<V<int>>;
+	using CVIR = const V<int>&;
+
+	static VVI findDifference(CVIR, CVIR) noexcept;
 };
 
 #endif //LEETCODE_CPP_DEFS_H
