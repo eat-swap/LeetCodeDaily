@@ -24,4 +24,9 @@ public:
 	static int arraySign(const std::vector<int>&) noexcept;
 };
 
+class LC230503CN {
+public:
+	static bool isValid(const std::string&) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H
