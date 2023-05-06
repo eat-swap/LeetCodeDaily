@@ -12,6 +12,8 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& x) noexcept {
 }
 
 int main() {
-	std::cout << LC230503CN::isValid("aabbcc");
+	std::cout << LC230504CN::maxTotalFruits({
+												{0,3},{6,4},{8,5}
+	}, 3,2);
 	return 0;
 }

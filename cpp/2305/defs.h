@@ -40,4 +40,24 @@ public:
 	static VVI findDifference(CVIR, CVIR) noexcept;
 };
 
+class LC230504CN {
+public:
+	static int maxTotalFruits(const std::vector<std::vector<int>>&, int, int) noexcept;
+};
+
+class LC230504 {
+public:
+	static std::string predictPartyVictory(std::string) noexcept;
+};
+
+class LC230505CN {
+public:
+	static int hardestWorker(int, const std::vector<std::vector<int>>&) noexcept;
+};
+
+class LC230505 {
+public:
+	static int maxVowels(const std::string&, int) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H
