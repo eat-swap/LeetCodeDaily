@@ -12,7 +12,6 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& x) noexcept {
 }
 
 int main() {
-	std::vector<int> arr {2,3,3,4,6,7};
-	std::cout << LC230506::numSubseq(arr,12);
+	std::cout << LC230506CN::minNumberOfFrogs("crcoakroak");
 	return 0;
 }

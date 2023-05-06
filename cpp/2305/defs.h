@@ -65,4 +65,9 @@ public:
 	static int numSubseq(std::vector<int>&, int) noexcept;
 };
 
+class LC230506CN {
+public:
+	static int minNumberOfFrogs(const std::string&) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H
