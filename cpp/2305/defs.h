@@ -60,4 +60,9 @@ public:
 	static int maxVowels(const std::string&, int) noexcept;
 };
 
+class LC230506 {
+public:
+	static int numSubseq(std::vector<int>&, int) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H

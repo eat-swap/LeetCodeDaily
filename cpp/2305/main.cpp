@@ -12,8 +12,7 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& x) noexcept {
 }
 
 int main() {
-	std::cout << LC230504CN::maxTotalFruits({
-												{0,3},{6,4},{8,5}
-	}, 3,2);
+	std::vector<int> arr {2,3,3,4,6,7};
+	std::cout << LC230506::numSubseq(arr,12);
 	return 0;
 }
