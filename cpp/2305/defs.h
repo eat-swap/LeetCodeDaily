@@ -70,4 +70,9 @@ public:
 	static int minNumberOfFrogs(const std::string&) noexcept;
 };
 
+class LC230507 {
+public:
+	static std::vector<int> longestObstacleCourseAtEachPosition(const std::vector<int>&) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H
