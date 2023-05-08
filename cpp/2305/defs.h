@@ -80,4 +80,13 @@ public:
 	static int diagonalSum(const std::vector<std::vector<int>>&) noexcept;
 };
 
+class LC230508CN {
+private:
+	static inline constexpr std::int8_t dX[] = {0, 1, 0, -1};
+	static inline constexpr std::int8_t dY[] = {1, 0, -1, 0};
+
+public:
+	static int minPushBox(const std::vector<std::vector<char>>&) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H
