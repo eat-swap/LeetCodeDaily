@@ -75,4 +75,9 @@ public:
 	static std::vector<int> longestObstacleCourseAtEachPosition(const std::vector<int>&) noexcept;
 };
 
+class LC230508 {
+public:
+	static int diagonalSum(const std::vector<std::vector<int>>&) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H
