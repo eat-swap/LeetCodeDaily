@@ -75,6 +75,11 @@ public:
 	static std::vector<int> longestObstacleCourseAtEachPosition(const std::vector<int>&) noexcept;
 };
 
+class LC230507CN {
+public:
+	static int numPairsDivisibleBy60(const std::vector<int>&) noexcept;
+};
+
 class LC230508 {
 public:
 	static int diagonalSum(const std::vector<std::vector<int>>&) noexcept;
@@ -87,6 +92,11 @@ private:
 
 public:
 	static int minPushBox(const std::vector<std::vector<char>>&) noexcept;
+};
+
+class LC230509CN {
+public:
+	static int countTime(const std::string&) noexcept;
 };
 
 #endif //LEETCODE_CPP_DEFS_H
