@@ -99,4 +99,13 @@ public:
 	static int countTime(const std::string&) noexcept;
 };
 
+class LC230509 {
+private:
+	static inline constexpr int dX[] = {0, 1, 0, -1};
+	static inline constexpr int dY[] = {1, 0, -1, 0};
+
+public:
+	static std::vector<int> spiralOrder(const std::vector<std::vector<int>>&) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H
