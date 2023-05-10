@@ -108,4 +108,9 @@ public:
 	static std::vector<int> spiralOrder(const std::vector<std::vector<int>>&) noexcept;
 };
 
+class LC230510CN {
+public:
+	static constexpr inline int smallestRepunitDivByK(int k) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H
