@@ -124,4 +124,9 @@ public:
 	static int maxUncrossedLines(CVIR, CVIR) noexcept;
 };
 
+class LC230512 {
+public:
+	static long long mostPoints(const std::vector<std::vector<int>>&) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H

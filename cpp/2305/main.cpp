@@ -14,6 +14,6 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& x) noexcept {
 }
 
 int main() {
-	std::cout << LC230511::maxUncrossedLines({1,3,7,1,7,5},{1,9,2,5,1});
+	std::cout << LC230512::mostPoints({{3,2}, {4,3}, {4,4}, {2,5}});
 	return 0;
 }
