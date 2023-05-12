@@ -118,4 +118,10 @@ public:
 	static bool queryString(const std::string& s, int n) noexcept;
 };
 
+class LC230511 {
+public:
+	using CVIR = const std::vector<int>&;
+	static int maxUncrossedLines(CVIR, CVIR) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H
