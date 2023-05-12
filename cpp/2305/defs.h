@@ -113,4 +113,9 @@ public:
 	static constexpr inline int smallestRepunitDivByK(int k) noexcept;
 };
 
+class LC230511CN {
+public:
+	static bool queryString(const std::string& s, int n) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H
