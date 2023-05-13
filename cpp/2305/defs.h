@@ -129,4 +129,9 @@ public:
 	static long long mostPoints(const std::vector<std::vector<int>>&) noexcept;
 };
 
+class LC230513 {
+public:
+	static int countGoodStrings(int, int, int, int) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H

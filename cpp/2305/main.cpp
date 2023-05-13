@@ -14,6 +14,6 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& x) noexcept {
 }
 
 int main() {
-	std::cout << LC230512::mostPoints({{3,2}, {4,3}, {4,4}, {2,5}});
+	std::cout << LC230513::countGoodStrings(2,3,1,2);
 	return 0;
 }
