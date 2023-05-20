@@ -134,4 +134,14 @@ public:
 	static int countGoodStrings(int, int, int, int) noexcept;
 };
 
+class LC230520 {
+public:
+	template<typename T>
+	using V = std::vector<T>;
+	using VD = V<double>;
+	using CVVS = const V<V<std::string>>;
+
+	static VD calcEquation(CVVS&, const VD&, CVVS&) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H
