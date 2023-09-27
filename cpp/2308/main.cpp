@@ -2,7 +2,6 @@
 #include <iostream>
 
 int main() {
-	LC230827 s;
-	std::cout << s.canCross({0,1,3,5,6,8,12,17});
+	std::cout << LC230927::decodeAtIndex("a2b3c4d5e6f7g8h9", 9);
 	return 0;
 }

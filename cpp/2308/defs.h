@@ -26,4 +26,9 @@ public:
 	static int bestClosingTime(const std::string&);
 };
 
+class LC230927 {
+public:
+	static std::string decodeAtIndex(const std::string& s, int k);
+};
+
 #endif //LEETCODE_CPP_DEFS_H
