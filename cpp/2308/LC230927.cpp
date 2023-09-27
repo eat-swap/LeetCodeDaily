@@ -6,32 +6,32 @@
 #include "defs.h"
 
 std::string LC230927::decodeAtIndex(const std::string& s, int k) {
-	std::vector<std::tuple<std::string, int, unsigned long long>> col;
+	std::tuple<int, int, unsigned long long> col[51];
+	int level = 0;
 	unsigned long long len = 0;
-	std::string buf;
+	int begin = 0, end = 0;
 	for (char ch : s) {
 		if (std::isalpha(ch)) {
 			++len;
-			buf += ch;
+			++end;
 		} else { // num
-			col.emplace_back(buf, ch ^ 0x30, len *= (ch ^ 0x30));
-			buf.clear();
+			col[level++] = {begin, ch ^ 0x30, len *= (ch ^ 0x30)};
+			begin = end = end + 1;
 		}
 		if (len >= k)
 			break;
 	}
-	if (!buf.empty())
-		col.emplace_back(buf, 1, len);
-	const int level = col.size();
+	if (begin < end)
+		col[level++] = {begin, 1, len};
 	int ck = k - 1;
 	for (int i = level - 1; i >= 0; --i) {
 		const auto prev_len = i ? std::get<2>(col[i - 1]) : 0ULL;
-		const auto& [c_str, c_dup, cur_len] = col[i];
+		const auto& [b, c_dup, cur_len] = col[i];
 		ck %= (cur_len / c_dup);
 		if (ck >= prev_len)
-			return {c_str[ck - prev_len]};
+			return {s[ck - prev_len + b]};
 	}
-	return {std::get<0>(col[0])[ck]};
+	return {s[ck]};
 }
 
 
