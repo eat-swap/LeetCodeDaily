@@ -27,8 +27,7 @@ std::string LC230927::decodeAtIndex(const std::string& s, int k) {
 	for (int i = level - 1; i >= 0; --i) {
 		const auto prev_len = i ? std::get<2>(col[i - 1]) : 0ULL;
 		const auto& [b, c_dup, cur_len] = col[i];
-		ck %= (cur_len / c_dup);
-		if (ck >= prev_len)
+		if ((ck %= (cur_len / c_dup)) >= prev_len)
 			return {s[ck - prev_len + b]};
 	}
 	return {s[ck]};
