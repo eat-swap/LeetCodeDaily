@@ -21,5 +21,9 @@ public:
 	bool empty();
 };
 
+class LC230829 {
+public:
+	static int bestClosingTime(const std::string&);
+};
 
 #endif //LEETCODE_CPP_DEFS_H
