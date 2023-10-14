@@ -31,4 +31,9 @@ public:
 	static std::string decodeAtIndex(const std::string& s, int k);
 };
 
+class LC231014 {
+public:
+	static int paintWalls(const std::vector<int>&, const std::vector<int>&);
+};
+
 #endif //LEETCODE_CPP_DEFS_H
