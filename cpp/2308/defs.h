@@ -41,4 +41,9 @@ public:
 	static int numWays(int, int);
 };
 
+class LC231016 {
+public:
+	static std::vector<int> getRow(int rowIndex) noexcept;
+};
+
 #endif //LEETCODE_CPP_DEFS_H
