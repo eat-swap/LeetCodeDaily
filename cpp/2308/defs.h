@@ -36,4 +36,9 @@ public:
 	static int paintWalls(const std::vector<int>&, const std::vector<int>&);
 };
 
+class LC231015 {
+public:
+	static int numWays(int, int);
+};
+
 #endif //LEETCODE_CPP_DEFS_H
