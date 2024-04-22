@@ -46,5 +46,10 @@ public:
     static bool validPath(int n, const std::vector<std::vector<int>>& edges, int source, int destination) noexcept;
 };
 
+class LC240422 {
+public:
+	static int openLock(const std::vector<std::string>&, std::string);
+};
+
 
 #endif //LEETCODE_CPP_DEFS_H

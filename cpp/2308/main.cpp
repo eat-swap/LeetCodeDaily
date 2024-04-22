@@ -2,10 +2,8 @@
 #include <iostream>
 
 int main() {
-	std::cout << LC240421::validPath(3, {
-            {0, 1},
-            {1, 2},
-            {2, 0},
-    }, 0, 2);
+	std::cout << LC240422::openLock({
+		"0201","0101","0102","1212","2002"
+	}, "0202");
 	return 0;
 }
